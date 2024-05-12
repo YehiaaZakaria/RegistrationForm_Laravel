@@ -14,3 +14,9 @@ Route::get('/getBornToday', [MainController::class, 'getBornToday']);
 // Route::get('/mail', function () {
 //     Mail::to('laravel179@gmail.com')->send(new HelloMail());
 // });
+
+
+Route::get('lang/{locale}', function ($locale) {
+    session(['locale' => $locale]);
+    return redirect()->back();
+})->name('setLocale');

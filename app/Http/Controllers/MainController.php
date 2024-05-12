@@ -14,6 +14,12 @@ require_once (app_path() . '/upload.php');
 
 class MainController extends Controller
 {
+
+    public function __construct()
+    {
+        $locale = session('locale', 'en');
+        app()->setLocale($locale);
+    }
     public function index()
     {
         return view('index');

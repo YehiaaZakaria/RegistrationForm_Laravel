@@ -1,7 +1,10 @@
 /* styles.css */
-body{
-  margin: 0px;
+
+/* Reset default margin */
+body {
+  margin: 0;
 }
+
 /* Header */
 header {
   background-color: #f2f2f2;
@@ -22,23 +25,28 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #333; /* Soft color for links */
+  color: #333;
   font-weight: bold;
 }
 
 /* Form */
-.tilte
-{
+.title-container {
   text-align: center;
+  margin-bottom: 20px; /* Adjust as needed */
+  display: inline;
+}
+
+.title {
+  margin-right: 20px;
 }
 
 .container {
   margin: 20px auto;
   padding: 20px;
-  width: 50%; /* Adjust width as needed */
-  background-color: #f9f9f9; /* Soft color background */
+  width: 50%;
+  background-color: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -58,7 +66,8 @@ button[type="submit"] {
   transition: background-color 0.3s;
 }
 
-#submitButton:hover, #getBornTodayButton:hover{
+#submitButton:hover,
+#getBornTodayButton:hover {
   background-color: #adadad;
 }
 
@@ -81,7 +90,7 @@ button[type="submit"] {
 
 /* Footer */
 footer {
-  background-color: #f2f2f2; /* Soft color background */
+  background-color: #f2f2f2;
   padding: 20px;
   text-align: center;
   margin-top: 20px;
@@ -89,4 +98,23 @@ footer {
 
 footer p {
   margin: 5px 0;
+}
+
+.language-switch {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.language-toggle {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.language-toggle:hover {
+  background-color: #666;
 }

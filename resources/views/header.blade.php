@@ -7,7 +7,7 @@
 <body>
     <header>
       
-    <h1>Welcome to User Registration</h1>
+    <h1>{{ trans('messages.welcome') }}</h1>
     
     </header>
     
