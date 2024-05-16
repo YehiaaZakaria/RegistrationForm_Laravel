@@ -117,7 +117,7 @@ class MainController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://imdb8.p.rapidapi.com/actors/list-born-today?month=$month&day=$day",
+            CURLOPT_URL => "https://imdb8.p.rapidapi.com/actors/list-born-today?month=".$month."&day=".$day,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -160,7 +160,7 @@ class MainController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-            CURLOPT_URL => "https://imdb8.p.rapidapi.com/actors/get-bio?nconst=$id",
+            CURLOPT_URL => "https://imdb8.p.rapidapi.com/actors/get-bio?nconst=".$id,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
