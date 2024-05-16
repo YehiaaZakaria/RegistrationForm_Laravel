@@ -9,12 +9,9 @@ Route::get('/', [MainController::class, 'index']);
 
 Route::post('/save_user', [MainController::class, 'save_user']);
 
+Route::post('/save_userr', [MainController::class, 'save_userr']);
+
 Route::get('/getBornToday', [MainController::class, 'getBornToday']);
-
-// Route::get('/mail', function () {
-//     Mail::to('laravel179@gmail.com')->send(new HelloMail());
-// });
-
 
 Route::get('lang/{locale}', function ($locale) {
     session(['locale' => $locale]);

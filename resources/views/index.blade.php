@@ -80,43 +80,44 @@
 </form>
 <script>
     $('#form').submit(function (event) {
-        var form = $(this);
+    var form = $(this);
 
-        event.preventDefault();
+    event.preventDefault();
 
-        var formData = new FormData(form[0]);
+    var formData = new FormData(form[0]);
 
-        // Clear error messages for username and email
-        $('#usernameValidation').html("");
-        $('#emailValidation').html("");
+    // Clear error messages for username and email
+    $('#usernameValidation').html("");
+    $('#emailValidation').html("");
 
-        if (checkPasswordValidation() && checkPasswordMatch() && checkNameValidation()) {
-            $.ajax({
-                url: 'save_user',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    if (response === "User registered successfully.") {
-                        alert("{{ trans('messages.success_message') }}");
-                        form[0].reset();
-                        $('#usernameValidation').html("");
-                    } else if (response === "Username already exists.") {
-                        $('#usernameValidation').html("*{{ trans('messages.username_exists_message') }}");
-                    } else if (response === "Email already exists.") {
-                        $('#emailValidation').html("*{{ trans('messages.email_exists_message') }}");
-                    } else {
-                        alert(response);
-                    }
-                },
-                error: function (xhr, status, error) {
-                    alert(xhr.responseText);
+    if (checkPasswordValidation() && checkPasswordMatch() && checkNameValidation()) {
+        $.ajax({
+            url: 'save_user',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.success) {
+                    alert(response.success);
+                    form[0].reset();
+                    $('#usernameValidation').html("");
+                } else if (response.error === "Username already exists.") {
+                    $('#usernameValidation').html("*{{ trans('messages.username_exists_message') }}");
+                } else if (response.error === "Email already exists.") {
+                    $('#emailValidation').html("*{{ trans('messages.email_exists_message') }}");
+                } else {
+                    alert(response.error);
                 }
-            });
-            $('#nameTableContainer').html("");
-        }
-    });
+            },
+            error: function (xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
+        $('#nameTableContainer').html("");
+    }
+});
+
 
     $('#full_name').keyup(function () {
         if (checkNameValidation()) {
